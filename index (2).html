@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V7 Marketing — Estratégia. Criatividade. Resultados.</title>
+<meta name="description" content="Soluções completas de marketing digital para fazer sua marca crescer e se destacar. Tráfego pago, branding, social media e muito mais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --red: #FF0000;
+  --red-dim: rgba(255,0,0,0.10);
+  --red-glow: rgba(255,0,0,0.30);
+  --red-border: rgba(255,0,0,0.40);
+  --black: #000000;
+  --surface: #0a0a0a;
+  --surface2: #111111;
+  --white: #FFFFFF;
+  --grey: #666;
+  --grey-light: #aaa;
+  --grey-mid: #888;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: var(--red); }
+
+/* ═══════════ NAVBAR ═══════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 64px;
+  height: 72px;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,0,0,0.12);
+  transition: border-color 0.3s;
+}
+nav.active { border-bottom-color: rgba(255,0,0,0.3); }
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-decoration: none;
+  line-height: 1;
+}
+.logo-accent { color: var(--red); }
+
+.nav-links {
+  display: flex; align-items: center; gap: 36px; list-style: none;
+}
+.nav-links a {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--grey-mid); text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 10px 22px; border-radius: 2px;
+  font-size: 0.68rem !important; font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase; text-decoration: none;
+  transition: box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 0 24px var(--red-glow);
+}
+.nav-btn:hover {
+  box-shadow: 0 0 48px rgba(255,0,0,0.55) !important;
+  transform: translateY(-1px);
+  color: var(--white) !important;
+}
+
+/* ═══════════ HERO ═══════════ */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 140px 40px 100px;
+  position: relative; overflow: hidden;
+}
+
+/* Radial glow behind hero */
+.hero-radial {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 45%, rgba(255,0,0,0.09) 0%, transparent 70%);
+}
+
+/* Animated scan lines */
+.hero-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.012) 2px,
+    rgba(255,255,255,0.012) 4px
+  );
+}
+
+/* Vertical accent lines */
+.hero-vlines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(255,0,0,0.04) 1px, transparent 1px);
+  background-size: 120px 100%;
+}
+
+/* Corner decorations */
+.corner {
+  position: absolute; width: 60px; height: 60px; pointer-events: none;
+}
+.corner-tl { top: 100px; left: 40px;
+  border-top: 1px solid var(--red); border-left: 1px solid var(--red); }
+.corner-tr { top: 100px; right: 40px;
+  border-top: 1px solid var(--red); border-right: 1px solid var(--red); }
+.corner-bl { bottom: 60px; left: 40px;
+  border-bottom: 1px solid var(--red); border-left: 1px solid var(--red); }
+.corner-br { bottom: 60px; right: 40px;
+  border-bottom: 1px solid var(--red); border-right: 1px solid var(--red); }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,0,0,0.08);
+  border: 1px solid rgba(255,0,0,0.25);
+  padding: 6px 18px; border-radius: 1px;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 44px;
+  position: relative; z-index: 2;
+  opacity: 0; animation: slideUp 0.7s ease 0.1s forwards;
+}
+.blink {
+  width: 6px; height: 6px; background: var(--red);
+  border-radius: 50%; animation: blink 1.4s infinite;
+}
+
+.hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.8rem, 9vw, 9.5rem);
+  line-height: 0.92; letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative; z-index: 2;
+  max-width: 1100px;
+  opacity: 0; animation: slideUp 0.8s ease 0.25s forwards;
+}
+.hero-h1 .red { color: var(--red); text-shadow: 0 0 80px rgba(255,0,0,0.45); }
+
+.hero-sub {
+  font-size: clamp(0.88rem, 1.5vw, 1.05rem);
+  font-weight: 400; letter-spacing: 0.06em;
+  color: var(--grey-light);
+  max-width: 560px; line-height: 1.8;
+  margin-top: 36px;
+  position: relative; z-index: 2;
+  opacity: 0; animation: slideUp 0.8s ease 0.4s forwards;
+}
+
+.hero-btns {
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+  margin-top: 56px;
+  position: relative; z-index: 2;
+  opacity: 0; animation: slideUp 0.8s ease 0.55s forwards;
+}
+
+.btn-r {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red); color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none; padding: 16px 34px; border-radius: 2px;
+  transition: all 0.3s;
+  box-shadow: 0 0 32px var(--red-glow);
+  position: relative; overflow: hidden;
+}
+.btn-r::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, transparent 50%);
+}
+.btn-r:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 64px rgba(255,0,0,0.55), 0 8px 24px rgba(255,0,0,0.3);
+}
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none; padding: 15px 32px; border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+.btn-ghost:hover {
+  border-color: var(--red); color: var(--red);
+  box-shadow: inset 0 0 24px rgba(255,0,0,0.06);
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  z-index: 2; opacity: 0; animation: fadeIn 1s ease 1.2s forwards;
+}
+.hero-scroll span {
+  font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--grey); font-weight: 600;
+}
+.scroll-bar {
+  width: 1px; height: 50px;
+  background: linear-gradient(180deg, var(--red) 0%, transparent 100%);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+
+/* ═══════════ NUMBERS STRIP ═══════════ */
+.strip {
+  background: var(--surface);
+  border-top: 1px solid rgba(255,0,0,0.12);
+  border-bottom: 1px solid rgba(255,0,0,0.12);
+  padding: 0 64px;
+  display: flex; justify-content: center;
+}
+.strip-inner {
+  display: flex; max-width: 1200px; width: 100%;
+}
+.strip-item {
+  flex: 1; padding: 44px 20px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  opacity: 0; transform: translateY(16px);
+  transition: all 0.55s ease;
+}
+.strip-item:last-child { border-right: none; }
+.strip-item.vis { opacity: 1; transform: none; }
+.strip-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.6rem; line-height: 1;
+  color: var(--white); letter-spacing: 0.04em;
+}
+.strip-num em { color: var(--red); font-style: normal; }
+.strip-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--grey-mid); margin-top: 6px;
+}
+
+/* ═══════════ SECTIONS ═══════════ */
+.sec { padding: 130px 64px; }
+.sec-centered { text-align: center; }
+
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+}
+.sec-tag::before {
+  content: ''; width: 28px; height: 1px;
+  background: var(--red); box-shadow: 0 0 8px var(--red);
+}
+
+.sec-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  letter-spacing: 0.04em; line-height: 0.95;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.sec-title .red { color: var(--red); }
+
+.sec-desc {
+  font-size: 0.95rem; font-weight: 300;
+  color: var(--grey-light); line-height: 1.85;
+  max-width: 600px;
+}
+.sec-centered .sec-desc { margin: 0 auto; }
+
+/* ═══════════ ABOUT ═══════════ */
+#about { background: var(--black); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-badge {
+  display: inline-block;
+  background: var(--red-dim);
+  border: 1px solid var(--red-border);
+  color: var(--red);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 2px;
+  margin-bottom: 30px;
+}
+.about-body {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--grey-light); line-height: 1.9;
+  margin-top: 22px;
+}
+.mvv-list {
+  display: flex; flex-direction: column; gap: 24px; margin-top: 44px;
+}
+.mvv-item {
+  display: flex; gap: 16px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 2px solid var(--red);
+  border-radius: 1px;
+  transition: border-color 0.3s;
+}
+.mvv-item:hover { border-color: var(--red); background: var(--surface2); }
+.mvv-icon {
+  color: var(--red); flex-shrink: 0; margin-top: 2px;
+  filter: drop-shadow(0 0 6px rgba(255,0,0,0.5));
+}
+.mvv-title {
+  font-size: 0.7rem; font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 4px;
+}
+.mvv-text {
+  font-size: 0.85rem; font-weight: 300;
+  color: var(--grey-light); line-height: 1.7;
+}
+.values-row {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+}
+.value-chip {
+  background: rgba(255,0,0,0.07);
+  border: 1px solid rgba(255,0,0,0.2);
+  color: var(--grey-light);
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 1px;
+}
+
+/* About visual side */
+.about-visual {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.about-v7-bg {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22rem; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,0,0,0.08);
+  user-select: none; pointer-events: none;
+  letter-spacing: 0.05em;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+.about-box {
+  position: absolute; inset: 60px;
+  border: 1px solid rgba(255,0,0,0.15);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 28px; padding: 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+}
+.about-fact {
+  text-align: center;
+}
+.about-fact-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem; color: var(--white); letter-spacing: 0.04em;
+}
+.about-fact-num em { color: var(--red); font-style: normal; }
+.about-fact-label {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--grey-mid); margin-top: 4px;
+}
+.about-divider {
+  width: 1px; height: 40px; background: rgba(255,0,0,0.2);
+}
+
+/* ═══════════ SERVICES ═══════════ */
+#services { background: var(--surface); }
+.services-head {
+  max-width: 1200px; margin: 0 auto 64px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 30px;
+}
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: rgba(255,0,0,0.08);
+  border: 1px solid rgba(255,0,0,0.1);
+}
+.svc-card {
+  background: var(--black);
+  padding: 44px 36px;
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: background 0.35s;
+}
+.svc-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--red); box-shadow: 0 0 16px var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.svc-card:hover { background: #080808; }
+.svc-card:hover::before { transform: scaleX(1); }
+
+.svc-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem; line-height: 1;
+  color: rgba(255,0,0,0.07);
+  position: absolute; top: 16px; right: 24px;
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
+}
+.svc-card:hover .svc-num { color: rgba(255,0,0,0.14); }
+
+.svc-icon {
+  width: 44px; height: 44px;
+  color: var(--red);
+  filter: drop-shadow(0 0 10px rgba(255,0,0,0.55));
+  margin-bottom: 26px;
+  transition: filter 0.3s;
+}
+.svc-card:hover .svc-icon {
+  filter: drop-shadow(0 0 18px rgba(255,0,0,0.8));
+}
+
+.svc-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 14px; color: var(--white);
+}
+.svc-desc {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--grey-light); line-height: 1.75;
+}
+.svc-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--red); text-decoration: none;
+  margin-top: 22px;
+  opacity: 0; transform: translateX(-8px);
+  transition: all 0.3s;
+}
+.svc-card:hover .svc-more { opacity: 1; transform: none; }
+
+/* Wide last card */
+.svc-card.wide { grid-column: span 4; }
+.svc-card.wide .svc-desc { max-width: 640px; }
+
+/* ═══════════ INSTAGRAM ═══════════ */
+#instagram { background: var(--black); }
+.ig-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.ig-text .sec-desc { margin-top: 18px; }
+.ig-btns { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+
+.ig-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 160px);
+  gap: 4px;
+}
+.ig-tile {
+  background: var(--surface2);
+  border: 1px solid rgba(255,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.ig-tile:hover { border-color: rgba(255,0,0,0.45); }
+.ig-tile.big { grid-row: span 2; }
+.ig-tile-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.15); transition: color 0.3s;
+}
+.ig-tile:hover .ig-tile-inner { color: rgba(255,0,0,0.6); }
+.ig-tile-inner span {
+  font-size: 0.55rem; letter-spacing: 0.2em;
+  text-transform: uppercase; font-weight: 600;
+}
+.ig-handle {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 32px;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.1em; color: var(--grey-light);
+  text-decoration: none; transition: color 0.2s;
+}
+.ig-handle:hover { color: var(--red); }
+.ig-at { color: var(--red); }
+
+/* ═══════════ CTA ═══════════ */
+#cta {
+  background: var(--surface);
+  position: relative; overflow: hidden;
+  text-align: center; padding: 140px 64px;
+}
+.cta-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 65% at 50% 50%, rgba(255,0,0,0.1) 0%, transparent 70%);
+}
+.cta-ring {
+  position: absolute; top: 50%; left: 50%;
+  width: 600px; height: 600px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255,0,0,0.08);
+  border-radius: 50%; pointer-events: none;
+  animation: rotateSlow 20s linear infinite;
+}
+.cta-ring2 {
+  position: absolute; top: 50%; left: 50%;
+  width: 900px; height: 900px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255,0,0,0.04);
+  border-radius: 50%; pointer-events: none;
+  animation: rotateSlow 35s linear infinite reverse;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.cta-label {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 28px;
+}
+.cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6.5vw, 7rem);
+  line-height: 0.95; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 28px;
+}
+.cta-title .red { color: var(--red); text-shadow: 0 0 80px rgba(255,0,0,0.5); }
+.cta-sub {
+  font-size: 0.95rem; font-weight: 300;
+  color: var(--grey-light); line-height: 1.85;
+  margin-bottom: 52px;
+}
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ═══════════ FOOTER ═══════════ */
+footer {
+  background: #020202;
+  border-top: 1px solid rgba(255,0,0,0.12);
+  padding: 60px 64px 40px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 60px; max-width: 1200px; margin: 0 auto 48px;
+}
+.footer-brand-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem; letter-spacing: 0.08em;
+  color: var(--white); margin-bottom: 14px; line-height: 1;
+}
+.footer-brand-logo em { color: var(--red); font-style: normal; }
+.footer-brand-text {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--grey); line-height: 1.8; margin-bottom: 24px;
+  max-width: 280px;
+}
+.social-row { display: flex; gap: 10px; }
+.social-icon {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--grey-light); text-decoration: none;
+  transition: all 0.3s;
+}
+.social-icon:hover {
+  background: var(--red); border-color: var(--red);
+  color: var(--white); box-shadow: 0 0 20px rgba(255,0,0,0.4);
+}
+.footer-col-title {
+  font-size: 0.62rem; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--white); margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a {
+  font-size: 0.82rem; font-weight: 400;
+  color: var(--grey); text-decoration: none; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--red); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 0.72rem; color: var(--grey); letter-spacing: 0.06em; }
+.footer-slogan {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem; font-weight: 800;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ═══════════ REVEAL ═══════════ */
+.rev {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.rev.vis { opacity: 1; transform: none; }
+.rev-l {
+  opacity: 0; transform: translateX(-36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.rev-l.vis { opacity: 1; transform: none; }
+.rev-r {
+  opacity: 0; transform: translateX(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.rev-r.vis { opacity: 1; transform: none; }
+
+/* ═══════════ KEYFRAMES ═══════════ */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes blink {
+  0%, 100% { opacity: 1; } 50% { opacity: 0.2; }
+}
+@keyframes scrollDrop {
+  0% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  80% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  100% { opacity: 0; }
+}
+@keyframes glowPulse {
+  0%, 100% { -webkit-text-stroke-color: rgba(255,0,0,0.07); }
+  50% { -webkit-text-stroke-color: rgba(255,0,0,0.18); }
+}
+@keyframes rotateSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 1024px) {
+  nav { padding: 0 32px; }
+  .nav-links { gap: 24px; }
+  .sec { padding: 100px 32px; }
+  .strip { padding: 0 32px; }
+  .about-grid, .ig-inner { grid-template-columns: 1fr; gap: 60px; }
+  .about-visual { height: 360px; }
+  .about-v7-bg { font-size: 16rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-card.wide { grid-column: span 2; }
+  footer { padding: 60px 32px 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 700px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .sec { padding: 80px 20px; }
+  .strip { padding: 0 20px; }
+  .strip-inner { flex-wrap: wrap; }
+  .strip-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .services-grid { grid-template-columns: 1fr; background: none; border: none; gap: 1px; }
+  .svc-card.wide { grid-column: span 1; }
+  .services-head { flex-direction: column; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  footer { padding: 48px 20px 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .ig-mosaic { grid-template-rows: repeat(2, 120px); }
+  #cta { padding: 100px 20px; }
+  .corner { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">V<span class="logo-accent">7</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#services">Serviços</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="https://wa.me/message/AHX5KXB736PEF1" class="nav-btn">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.371-.012-.57-.012-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar agora
+    </a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-radial"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-vlines"></div>
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="hero-eyebrow">
+    <span class="blink"></span>
+    Marketing Digital de Alta Performance
+  </div>
+
+  <h1 class="hero-h1">
+    Soluções completas<br>para fazer sua marca<br><span class="red">crescer</span>
+  </h1>
+
+  <p class="hero-sub">
+    Ideias que impactam. Estratégias que vendem. Resultados que ficam.
+  </p>
+
+  <div class="hero-btns">
+    <a href="https://wa.me/message/AHX5KXB736PEF1" class="btn-r">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.371-.012-.57-.012-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+    <a href="https://www.instagram.com/_v7marketing" target="_blank" class="btn-ghost">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      Ver Instagram
+    </a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- NUMBERS STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-num">5<em>+</em></div>
+      <div class="strip-label">Anos de experiência</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">7</div>
+      <div class="strip-label">Serviços especializados</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">100<em>%</em></div>
+      <div class="strip-label">Foco em resultado</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">360<em>°</em></div>
+      <div class="strip-label">Estratégia completa</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="about-grid">
+
+    <div class="rev-l">
+      <div class="about-badge">Nossa história</div>
+      <div class="sec-tag">Sobre a V7</div>
+      <h2 class="sec-title">Do mercado real<br>ao <span class="red">digital</span></h2>
+      <p class="about-body">
+        A V7 nasceu a partir da vivência real de um empresário com mais de 5 anos de experiência no mercado de consórcio imobiliário, automotor e gestão de equipes comerciais.
+      </p>
+      <p class="about-body" style="margin-top:14px;">
+        Ao longo dessa trajetória, identificamos uma dor comum entre empresários: a dificuldade de encontrar parceiros preparados para estruturar o marketing digital de forma estratégica e orientada a resultados. Com isso, surgiu a V7 — para ajudar empresas a se posicionarem de forma profissional, fortalecerem suas marcas e aumentarem suas vendas no digital.
+      </p>
+
+      <div class="mvv-list">
+        <div class="mvv-item">
+          <div class="mvv-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="mvv-title">Missão</div>
+            <div class="mvv-text">Ajudar empresas a crescerem no digital com estratégia e geração de resultados.</div>
+          </div>
+        </div>
+        <div class="mvv-item">
+          <div class="mvv-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <div class="mvv-title">Visão</div>
+            <div class="mvv-text">Ser referência em marketing digital estratégico e performance.</div>
+          </div>
+        </div>
+        <div class="mvv-item">
+          <div class="mvv-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <div class="mvv-title">Valores</div>
+            <div class="values-row">
+              <span class="value-chip">Resultado</span>
+              <span class="value-chip">Transparência</span>
+              <span class="value-chip">Compromisso</span>
+              <span class="value-chip">Inovação</span>
+              <span class="value-chip">Excelência</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual rev-r">
+      <div class="about-v7-bg">V7</div>
+      <div class="about-box">
+        <div class="about-fact">
+          <div class="about-fact-num">5<em>+</em></div>
+          <div class="about-fact-label">Anos no mercado</div>
+        </div>
+        <div class="about-divider"></div>
+        <div class="about-fact">
+          <div class="about-fact-num">360<em>°</em></div>
+          <div class="about-fact-label">Visão estratégica</div>
+        </div>
+        <div class="about-divider"></div>
+        <div class="about-fact">
+          <div class="about-fact-num">7</div>
+          <div class="about-fact-label">Soluções integradas</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="services-head">
+    <div class="rev">
+      <div class="sec-tag">O que entregamos</div>
+      <h2 class="sec-title">Nossos<br><span class="red">serviços</span></h2>
+    </div>
+    <p class="sec-desc rev" style="max-width:360px;">
+      Soluções integradas cobrindo cada etapa da presença e performance digital da sua marca.
+    </p>
+  </div>
+
+  <div class="services-grid rev">
+
+    <div class="svc-card">
+      <span class="svc-num">01</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+      <div class="svc-name">Tráfego</div>
+      <p class="svc-desc">Estratégias inteligentes para atrair o público certo e gerar resultados reais com máximo ROI.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card">
+      <span class="svc-num">02</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <div class="svc-name">Branding</div>
+      <p class="svc-desc">Construção de marcas fortes, autênticas e memoráveis que geram conexão e impulsionam vendas.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card">
+      <span class="svc-num">03</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div class="svc-name">Social Media</div>
+      <p class="svc-desc">Gestão estratégica de redes sociais com conteúdo constante e foco em conversão.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card">
+      <span class="svc-num">04</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="svc-name">Store Maker</div>
+      <p class="svc-desc">Criação de lojas profissionais otimizadas para vendas diárias de alta conversão.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card">
+      <span class="svc-num">05</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <div class="svc-name">Edição de Vídeo</div>
+      <p class="svc-desc">Vídeos que prendem atenção, geram engajamento e aumentam conversões em qualquer plataforma.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card">
+      <span class="svc-num">06</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="svc-name">Edição de Fotos</div>
+      <p class="svc-desc">Imagens profissionais de alto impacto que valorizam sua marca e geram desejo de compra.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+    <div class="svc-card wide">
+      <span class="svc-num">07</span>
+      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <div class="svc-name">Criativos</div>
+      <p class="svc-desc">Design estratégico para anúncios, posts e campanhas que despertam desejo genuíno e geram ação imediata. Criativos que vendem — não apenas decoram.</p>
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="svc-more">Saiba mais →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" class="sec">
+  <div class="ig-inner">
+    <div class="rev-l">
+      <div class="sec-tag">Prova social</div>
+      <h2 class="sec-title">Siga a V7 no<br><span class="red">Instagram</span></h2>
+      <p class="sec-desc" style="margin-top:18px;">
+        Acompanhe nossa produção, cases de sucesso, bastidores e conteúdo estratégico de marketing digital. Presença que gera resultado.
+      </p>
+      <div class="ig-btns">
+        <a href="https://www.instagram.com/_v7marketing" target="_blank" class="btn-r">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/></svg>
+          @_v7marketing
+        </a>
+        <a href="https://wa.me/message/AHX5KXB736PEF1" class="btn-ghost">
+          Falar no WhatsApp
+        </a>
+      </div>
+      <a href="https://www.instagram.com/_v7marketing" target="_blank" class="ig-handle" style="margin-top:28px;">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        <span><span class="ig-at">@</span>_v7marketing</span>
+      </a>
+    </div>
+
+    <div class="rev-r">
+      <div class="ig-mosaic">
+        <!-- 6 placeholder tiles representing instagram posts -->
+        <div class="ig-tile big">
+          <div class="ig-tile-inner">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            <span>V7 Post</span>
+          </div>
+        </div>
+        <div class="ig-tile">
+          <div class="ig-tile-inner">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+        </div>
+        <div class="ig-tile">
+          <div class="ig-tile-inner">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+        </div>
+        <div class="ig-tile">
+          <div class="ig-tile-inner">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+        </div>
+        <div class="ig-tile">
+          <div class="ig-tile-inner">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.65rem; color:var(--grey); letter-spacing:0.14em; text-transform:uppercase; margin-top:16px; text-align:center;">
+        Siga para ver os posts reais → <a href="https://www.instagram.com/_v7marketing" target="_blank" style="color:var(--red); text-decoration:none;">@_v7marketing</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-ring"></div>
+  <div class="cta-ring2"></div>
+  <div class="cta-inner rev">
+    <div class="cta-label">O momento é agora</div>
+    <h2 class="cta-title">
+      Se você quer crescer<br>no digital, o momento<br>é <span class="red">agora.</span>
+    </h2>
+    <p class="cta-sub">
+      Pare de perder clientes para a concorrência. A V7 entrega estratégia e execução para sua marca dominar o digital com consistência e resultado real.
+    </p>
+    <div class="cta-btns">
+      <a href="https://wa.me/message/AHX5KXB736PEF1" class="btn-r">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.371-.012-.57-.012-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="https://www.instagram.com/_v7marketing" target="_blank" class="btn-ghost">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Ver Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <div class="footer-brand-logo">V<em>7</em></div>
+      <p class="footer-brand-text">
+        Parceira estratégica de crescimento digital. Unimos visão de mercado, execução e performance para entregar resultados reais.
+      </p>
+      <div class="social-row">
+        <a href="https://wa.me/message/AHX5KXB736PEF1" class="social-icon" title="WhatsApp">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.371-.012-.57-.012-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/_v7marketing" target="_blank" class="social-icon" title="Instagram">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Navegação</div>
+      <ul>
+        <li><a href="#about">Sobre a V7</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Serviços</div>
+      <ul>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Tráfego Pago</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Branding</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Social Media</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Store Maker</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Edição de Vídeo</a></li>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">Criativos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Contato</div>
+      <ul>
+        <li><a href="https://wa.me/message/AHX5KXB736PEF1">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/_v7marketing" target="_blank">@_v7marketing</a></li>
+        <li><a href="https://v7mkt.com.br">v7mkt.com.br</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 V7 Marketing. Todos os direitos reservados. · v7mkt.com.br</p>
+    <div class="footer-slogan">Estratégia. Criatividade. Resultados.</div>
+  </div>
+</footer>
+
+<script>
+  // ── Navbar scroll ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('active', window.scrollY > 60);
+  });
+
+  // ── Intersection Observer (reveal) ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const delay = e.target.dataset.delay || 0;
+        setTimeout(() => e.target.classList.add('vis'), Number(delay));
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.rev, .rev-l, .rev-r, .strip-item').forEach((el, i) => {
+    if (el.classList.contains('strip-item')) el.dataset.delay = i * 100;
+    io.observe(el);
+  });
+
+  // Stagger service cards
+  document.querySelectorAll('.svc-card').forEach((el, i) => {
+    // already covered by parent .rev
+  });
+</script>
+</body>
+</html>
